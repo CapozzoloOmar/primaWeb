@@ -1,0 +1,25 @@
+@model Prenotazione
+@{
+    ViewData["Title"] = "Prenota";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Prenotazioni</p>
+
+<form method="post" action="/Home/Prenota">
+    <label for="txtNome">Nome:</label>
+    <input type="text" id="txtNome" name="nome" required />
+    <br />
+    <label for="txtEmail">Email:</label>
+    <input type="email" id="txtEmail" name="email" required />
+    <br />
+    <input type="submit" value="Prenota" />
+</form>
+
+@if (Model?.nome != null && Model?.email != null)
+{
+    <h3>Risultati Prenotazione:</h3>
+    <p>Nome: @Model.nome</p>
+    <p>Email: @Model.email</p>
+}
